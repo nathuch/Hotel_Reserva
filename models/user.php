@@ -31,4 +31,18 @@ class User
         $conexion->query($sql);
         return $conexion->getfilasAfectadas();
     }
+    public function registrar_reserva($data)
+    {
+        $conexion = new Conexion();
+        $conexion->conectar();
+        $sql = "INSERT INTO reservation (id_user,id_room,checkin,checkout,pay,specialrequest) values (" .
+            intval($_SESSION['user']['id']) . "," .
+            intval($data['habitacion']) . "," .
+            "'" . $data['fecha_ingreso'] . "'," .
+            "'" . $data["fecha_salida"] . "'," .
+            intval($data["monto"]) . "," .
+            "'" . $data["observaciones"] . "')";
+        $conexion->query($sql);
+        return $conexion->getfilasAfectadas();
+    }
 }

@@ -110,8 +110,8 @@ class Controller
         $exist = $user->validateuser($data);
         if ($exist !== null) {
             if (password_verify($data['password'], $exist['password'])) {
-                $_SESSION['mensaje'] = "Login exitoso";
-                header('Location: https://www.youtube.com');
+                $_SESSION['user'] = $exist;
+                header('Location: index.php');
                 exit();
             } else {
                 $_SESSION['mesanje'] = "Contraseña incorrecta";

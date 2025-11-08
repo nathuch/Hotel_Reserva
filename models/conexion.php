@@ -7,6 +7,7 @@ class Conexion
     private $result;
     private $filasAfectadas;
 
+
     public function conectar()
     {
         $host = "localhost";
@@ -37,5 +38,9 @@ class Conexion
     public function getfilasAfectadas()
     {
         return $this->filasAfectadas;
+    }
+    public function prepare($sql)
+    {
+        return $this->mySQLI->prepare($sql);
     }
 }
