@@ -17,14 +17,17 @@ class ControllerEmail
                 break;
             }
         }
+        // Looking to send emails in production? Check out our Email API/SMTP product!
         $mail = new PHPMailer();
         $mail->CharSet = 'UTF-8';
         $mail->isSMTP();
-        $mail->Host = 'sandbox.smtp.mailtrap.io';
-        $mail->SMTPAuth = true;
-        $mail->Port = 2525;
-        $mail->Username = '60afecda1440ff';
-        $mail->Password = '77a7081c83bfb3';
+        $mail->Host       = 'smtp.gmail.com';
+        $mail->SMTPAuth   = true;
+        $mail->Username   = 'ng5632963@gmail.com'; // tu cuenta Gmail completa
+        $mail->Password   = 'lhmf dria reup pjne';
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port       = 587;
+
 
         $mail->setFrom('no-reply@hotel.com', 'Hotel Reservas');
         $mail->addAddress($_SESSION['user']['correo'], $_SESSION['user']['nombre']);
