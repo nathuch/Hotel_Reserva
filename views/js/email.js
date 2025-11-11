@@ -21,9 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     xhr.onload = function () {
       if (xhr.status === 200) {
-        alert("Correo electrónico enviado correctamente.");
+        Swal.fire({
+          title: "Correo Enviado",
+          icon: "success",
+          draggable: true,
+        });
       } else {
-        alert("Error al enviar el correo electrónico.");
+        Swal.fire({
+          title: "  Error al Enviar Correo",
+          icon: "error",
+          draggable: true,
+        });
       }
     };
   });
